@@ -1,0 +1,101 @@
+{
+  "author": "Muhammad Ubaid Raza <mubaidr@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/mubaidr/electron-starter-template/issues"
+  },
+  "build": {
+    "appId": "org.mubaidr.electron-starter-template",
+    "directories": {
+      "output": "build"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "path": "/Applications",
+          "type": "link",
+          "x": 410,
+          "y": 150
+        },
+        {
+          "type": "file",
+          "x": 130,
+          "y": 150
+        }
+      ]
+    },
+    "files": [
+      "dist/electron/**/*"
+    ],
+    "linux": {
+      "publish": [
+        "github"
+      ]
+    },
+    "mac": {
+      "publish": [
+        "github"
+      ]
+    },
+    "productName": "electron-starter-template",
+    "win": {
+      "publish": [
+        "github"
+      ]
+    }
+  },
+  "dependencies": {
+    "bulma-pro": "^0.2.0"
+  },
+  "description": "An electron starter project",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.1",
+    "css-loader": "^3.5.3",
+    "devtron": "^1.4.0",
+    "electron": "~9.0.0",
+    "electron-builder": "^22.6.1",
+    "electron-debug": "^3.1.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-webpack": "^0.12.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "inject-loader": "^4.0.1",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "node-loader": "^0.6.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.0.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "tree-kill": "1.2.2",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "license": "MIT",
+  "main": "./dist/electron/main.js",
+  "name": "electron-starter-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubaidr/electron-starter-template.git"
+  },
+  "scripts": {
+    "build": "npm run pack && electron-builder",
+    "dev": "node electron-scripts/dev-runner.js",
+    "lint": "eslint --ext .js,.vue --fix src && prettier --write ./src/**/*{.js,.vue}",
+    "pack": "npm run pack:main && npm run pack:renderer",
+    "pack:main": "webpack --mode production --hide-modules --config electron-scripts/webpack.main.config.js",
+    "pack:renderer": "webpack --mode production --hide-modules --config electron-scripts/webpack.renderer.config.js",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "version": "0.0.1"
+}
